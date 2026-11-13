@@ -9,7 +9,7 @@ C/C++ 跨平台工程模板：CMake + CMakePresets + vcpkg（子模块）+ pre-c
 1. GitHub 上用 "Use this template" 创建仓库；或 `git clone --recursive` 后把 `origin` 指向新仓库。
 2. 改顶层 `CMakeLists.txt` 中 `project()` 的名称。
 3. 用自己的代码替换示例：`src/` 下的 `crc16.*`、`checksum.*`，`tests/checksum_test.cpp`，`apps/crc16sum/`、`apps/crc16file/`，同步改这几个目录的 `CMakeLists.txt` 和 ARCHITECTURE.md 的代码地图。
-4. 重写本 README 的介绍并删掉本节，按需添加 LICENSE。
+4. 重写本 README 的介绍并删掉本节；本模板以 MIT 发布，按新项目的需要处理 `LICENSE`。
 
 ## 环境要求
 
