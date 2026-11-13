@@ -1,0 +1,29 @@
+{
+  // 每种文件的格式化器与 .pre-commit-config.yaml 中的钩子一一对应，保存即得到提交时的格式
+  "editor.formatOnSave": true,
+  "[c]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "[cmake]": {
+    "editor.defaultFormatter": "loopj.vscode-gersemi"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  // 补全与诊断交给 clangd，关掉 Microsoft C/C++ 扩展的 IntelliSense 以免重复
+  "C_Cpp.intelliSenseEngine": "disabled",
+  // 构建目录随 preset 变化，复制一份到 clangd 默认会查找的 build/ 下
+  "cmake.copyCompileCommands": "${workspaceFolder}/build/compile_commands.json"
+}

@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "llvm-vs-code-extensions.vscode-clangd",
+    "ms-vscode.cmake-tools",
+    "loopj.vscode-gersemi",
+    "esbenp.prettier-vscode",
+    "DavidAnson.vscode-markdownlint",
+    "EditorConfig.EditorConfig"
+  ]
+}

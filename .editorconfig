@@ -1,0 +1,13 @@
+# 没有配置格式化器的编辑器也按这里的基本约定保存文件；缩进与各格式化器的输出一致
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[{CMakeLists.txt,*.cmake}]
+indent_size = 4

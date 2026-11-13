@@ -1,0 +1,3 @@
+# 编辑器里的 clangd 与 pre-commit 里的 clang-format 都读取此文件。
+# 不同版本对同一配置的输出可能不同，以 .pre-commit-config.yaml 钉住的版本为准。
+BasedOnStyle: LLVM

@@ -1,0 +1,5 @@
+# 仓库与工作区一律 LF，不受各人 core.autocrlf 设置影响
+* text=auto eol=lf
+# cmd.exe 解析 LF 结尾的批处理文件时会跳错标签
+*.bat text eol=crlf
+*.cmd text eol=crlf

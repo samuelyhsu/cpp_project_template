@@ -1,0 +1,7 @@
+indent: 4
+line_length: 80
+# 让 gersemi 认识 cmake/ 下定义的函数，按其参数签名格式化调用处
+definitions: [cmake]
+# 第三方函数（如 Catch2 的 catch_discover_tests）定义在 vcpkg 安装目录里，gersemi 看不到；
+# 命令名写错时 CMake configure 会直接报错，不需要 gersemi 再提示
+warn_about_unknown_commands: false

@@ -1,0 +1,20 @@
+# 所有 preset 的构建目录都在 build/ 下
+/build/
+# 打包输出的 zip
+/bin/
+# 个人 preset，用来覆盖或扩展 CMakePresets.json
+CMakeUserPresets.json
+
+/.cache/
+/.vs/
+# 团队共享编辑器格式化与扩展推荐，其余（launch.json 等）属于个人
+/.vscode/*
+!/.vscode/settings.json
+!/.vscode/extensions.json
+
+# Claude Code 的个人设置与说明
+/.claude/settings.local.json
+CLAUDE.local.md
+
+# 屏蔽根目录的临时文件
+/temp.md

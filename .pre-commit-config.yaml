@@ -1,0 +1,52 @@
+# 提交前格式化并检查暂存的文件。
+# 钩子改动了文件时提交会被拦下：检查改动、git add 后重新提交。
+# 各格式化器与 .vscode/settings.json 中的编辑器格式化器一一对应，升级方法见 docs/code-quality.md。
+minimum_pre_commit_version: "4.4.0"
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-merge-conflict
+      # Windows 与 macOS 的文件系统不区分大小写，只差大小写的两个文件在那里会互相覆盖
+      - id: check-case-conflict
+      - id: check-added-large-files
+      - id: check-yaml
+      - id: check-json
+        # VS Code 的配置文件允许注释，不是严格 JSON
+        exclude: ^\.vscode/
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: v21.1.8
+    hooks:
+      - id: clang-format
+        # 默认还会处理 json、javascript 等，这里只保留 C/C++
+        types_or: [c, c++]
+  - repo: https://github.com/BlankSpruce/gersemi-pre-commit
+    rev: 0.27.7
+    hooks:
+      - id: gersemi
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.7.4
+    hooks:
+      - id: prettier
+        # Markdown 交给 markdownlint；pre-commit 不识别 jsonc 类型，故按扩展名匹配
+        types: [text]
+        files: \.(jsonc?|ya?ml)$
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.23.2
+    hooks:
+      - id: markdownlint-cli2
+        # 只自动修复；修不了的问题在 .markdownlint.jsonc 中设为 warning，提示但不拦截
+        args: [--fix]
+  - repo: local
+    hooks:
+      - id: vcpkg-baseline
+        name: vcpkg baseline matches submodule
+        entry: cmake -P cmake/check_vcpkg_baseline.cmake
+        language: unsupported
+        pass_filenames: false
+        always_run: true

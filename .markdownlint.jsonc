@@ -1,0 +1,11 @@
+// VS Code 的 markdownlint 扩展与 pre-commit 中的 markdownlint-cli2 都读取此文件
+{
+  // 规则全部启用但只作为 warning：能自动修复的在格式化时修掉，其余只提示
+  "default": "warning",
+  // 与 VS Code markdownlint 扩展的默认配置一致，不限制行宽
+  "MD013": false,
+  "MD024": {
+    "severity": "warning",
+    "siblings_only": true,
+  },
+}

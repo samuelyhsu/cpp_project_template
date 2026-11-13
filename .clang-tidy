@@ -1,0 +1,40 @@
+# clangd 在编辑器里实时显示这些检查；linux-x64-clang-tidy preset 把它们当作错误。
+# 关掉的检查噪声远大于收益：如 portability-template-virtual-member-function 只会报到标准库内部，
+# 而 #pragma once 是本仓库有意的选择。
+Checks: >
+  -*,
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  clang-analyzer-*,
+  concurrency-*,
+  misc-*,
+  -misc-non-private-member-variables-in-classes,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  performance-*,
+  portability-*,
+  -portability-avoid-pragma-once,
+  -portability-template-virtual-member-function,
+  readability-*,
+  -readability-identifier-length,
+  -readability-magic-numbers
+
+# 只报告本仓库的头文件；vcpkg 依赖的头文件作为系统头文件引入，本就不会报告
+HeaderFilterRegex: '[/\\](src|apps|tests)[/\\]'
+
+# 命名约定：类型 CamelCase，其余 lower_case，命名空间作用域常量 UPPER_CASE，
+# 非 public 成员变量加 _ 后缀
+CheckOptions:
+  readability-identifier-naming.ClassCase: CamelCase
+  readability-identifier-naming.StructCase: CamelCase
+  readability-identifier-naming.EnumCase: CamelCase
+  readability-identifier-naming.NamespaceCase: lower_case
+  readability-identifier-naming.FunctionCase: lower_case
+  readability-identifier-naming.MethodCase: lower_case
+  readability-identifier-naming.ParameterCase: lower_case
+  readability-identifier-naming.VariableCase: lower_case
+  readability-identifier-naming.MemberCase: lower_case
+  readability-identifier-naming.PrivateMemberSuffix: _
+  readability-identifier-naming.ProtectedMemberSuffix: _
+  readability-identifier-naming.GlobalConstantCase: UPPER_CASE
+  readability-identifier-naming.MacroDefinitionCase: UPPER_CASE
