@@ -43,7 +43,7 @@ cmake --build --preset linux-x64-release --target package   # 打包 zip
 ## 配置
 
 - 个人 preset 写在 `CMakeUserPresets.json`（已被 git 忽略），继承已有 preset。
-- configure 时加 `-DBUILD_TESTING=OFF` 不构建测试，加 `-DCMAKE_COMPILE_WARNING_AS_ERROR=OFF` 临时关闭警告即错误。
+- configure 时加 `-DBUILD_TESTING=OFF` 不构建测试，加 `-DCMAKE_COMPILE_WARNING_AS_ERROR=ON` 把编译警告视为错误。
 
 ## 发布
 

@@ -4,7 +4,7 @@
 
 ## Preset
 
-- 始终经 preset 构建：平台相关的设置（编译器、三元组、MSVC 运行库、警告即错误）都在 `CMakePresets.json`，手工 `cmake -S . -B` 要自己补齐。
+- 始终经 preset 构建：平台相关的设置（编译器、三元组、MSVC 运行库）都在 `CMakePresets.json`，手工 `cmake -S . -B` 要自己补齐。
 - Windows preset 固定用 `cl`，免得 CMake 选中 PATH 里的 clang 或 gcc。`architecture` / `toolset` 设为 `external`，VS Code CMake Tools 和 Visual Studio 会自动进入 x64 开发者环境；命令行下要先自己进入。
 - `linux-x64-asan` 只插桩本仓库的代码；vcpkg 按三元组单独编译依赖，不带这些标志。
 

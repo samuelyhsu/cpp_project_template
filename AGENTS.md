@@ -9,7 +9,7 @@ C/C++ 工程：CMake + CMakePresets + vcpkg（子模块），pre-commit 统一�
 
 一项改动完成，当且仅当下面两条都通过：
 
-1. `cmake --preset <p> && cmake --build --preset <p> && ctest --preset <p>`，`<p>` 为 `windows-x64-debug` / `linux-x64-debug` / `osx-arm64-debug`，警告即错误。Windows 下先进入 VS x64 开发者环境，否则 MSVC 找不到标准头文件。
+1. `cmake --preset <p> && cmake --build --preset <p> && ctest --preset <p>`，`<p>` 为 `windows-x64-debug` / `linux-x64-debug` / `osx-arm64-debug`。Windows 下先进入 VS x64 开发者环境，否则 MSVC 找不到标准头文件。
 2. `pre-commit run --files <本次改动和新增的文件>`：钩子改了文件就再跑，直到全部 Passed。`--all-files` 只覆盖已跟踪文件，会漏掉新文件。
 
 行为改动配测试；结构、数据流或特性行为变了，同一改动里更新 ARCHITECTURE.md 和对应的 `docs/` 文档；改动影响到某个 app 时，记入 `apps/<app>/CHANGELOG.md` 的 `## [Unreleased]`；改了 `src/` 的库，逐个检查链接它的 app，受影响的都要记。不影响任何 app 的改动（构建、工具链、规范）只写进提交信息。

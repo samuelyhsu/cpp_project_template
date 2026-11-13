@@ -3,7 +3,7 @@
 # 提高版本时同步改 presets 的 version，并删掉下文按 CMAKE_VERSION 做的兼容。
 cmake_minimum_required(VERSION 3.22)
 
-# 平台相关的配置（生成器、vcpkg 三元组、编译器、MSVC 运行库、警告视为错误）都在
+# 平台相关的配置（生成器、vcpkg 三元组、编译器、MSVC 运行库）都在
 # CMakePresets.json，这里只放与平台无关、或必须在 project() 之前完成的部分。
 # 工具链文件（vcpkg）在第一次 project() 时才加载，下面几步必须排在它前面。
 
